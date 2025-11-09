@@ -1,5 +1,6 @@
 import './App.css'
 import ContactUs from './components/contact-us/ContactUs';
+import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import NewsLatter from './components/newsletter/NewsLatter'
 import { ToastContainer, Bounce } from 'react-toastify';
@@ -24,6 +25,7 @@ function App() {
         <Navbar />
         <NewsLatter />
         <ContactUs />
+        <Footer />
       </div>
     </>
   )
