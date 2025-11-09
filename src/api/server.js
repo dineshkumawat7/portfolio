@@ -1,5 +1,5 @@
 export const apiRequest = async (endpoint, options = {}) => {
-    const BASE_URL = 'http://localhost:8080';
+    const BASE_URL = 'http://localhost:5000';
 
     const response = await fetch(`${BASE_URL}${endpoint}`, {
         headers: {

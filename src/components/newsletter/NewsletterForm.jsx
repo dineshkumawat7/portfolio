@@ -3,60 +3,72 @@ import { apiRequest } from "../../api/server";
 import Button from "../common/Button";
 import { toast } from "react-toastify";
 import { SiMinutemailer } from "react-icons/si";
+import InputField from "../common/InputField";
 
 const NewsLatterForm = () => {
-    const [email, setEmail] = useState("");
-    const [status, setStatus] = useState(null);
-    const [error, setError] = useState("");
-    const [isValid, setIsValid] = useState(false);
+    const [formData, setFormData] = useState({
+        email: ""
+    });
 
-    const validateEmail = (value) => {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!value || value.trim() === "") {
-            setError("Please enter your email address.");
-            setIsValid(false);
-            return false;
-        } else if (!regex.test(value)) {
-            setError("Please enter a valid email address.");
-            setIsValid(false);
-            return false;
-        } else {
-            setError("");
-            setIsValid(true);
-            return true;
-        }
+    const [errors, setErrors] = useState({});
+    const [status, setStatus] = useState(null);
+
+    const validateField = (name, value) => {
+        let error = "";
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value.trim() && value.trim() == "") error = "Email is required.";
+        else if (!emailRegex.test(value)) error = "Invalid email address.";
+
+        return error;
     };
 
     const handleChange = (e) => {
-        const value = e.target.value;
-        setEmail(value);
-        validateEmail(value);
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+
+        setErrors((prev) => ({
+            ...prev,
+            [name]: validateField(name, value),
+        }));
+    };
+
+    const validateFormData = () => {
+        const newErrors = {};
+        Object.keys(formData).forEach((key) => {
+            const errorMsg = validateField(key, formData[key]);
+            if (errorMsg) newErrors[key] = errorMsg;
+        });
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!validateEmail(email)) return;
+
+        if (!validateFormData()) {
+            toast.error("Please fill all required fields.");
+            return;
+        }
 
         setStatus("loading");
-
         try {
             const response = await apiRequest("/api/v1/portfolio/subscribe", {
                 method: "POST",
-                body: JSON.stringify({ email }),
+                body: JSON.stringify(formData),
             });
 
             setStatus("success");
-            console.log("Subscribed:", response);
-
             if (response.status === "Success" && response.statusCode === 200) {
-                toast.success(response.message || "Thank you for subscribing!");
-                setEmail("");
-                setIsValid(false);
+                toast.success(response.message || "Message sent successfully!");
+                setFormData({ email: "" });
+                setErrors({});
             } else {
-                toast.error(response.message || "Subscription failed.");
+                toast.error(response.message || "Failed to send message.");
             }
         } catch (error) {
-            console.error("Subscription error:", error);
+            console.error(error);
             setStatus("error");
             toast.error("Server error! Please try again later.");
         }
@@ -66,18 +78,14 @@ const NewsLatterForm = () => {
         <form onSubmit={handleSubmit}>
             <div className="flex w-full">
                 <div className="flex-grow">
-                    <input
-                        type="email"
-                        value={email}
-                        placeholder="Enter your email"
+                    <InputField
+                        name="email"
+                        type="emal"
+                        value={formData.email}
                         onChange={handleChange}
-                        className={`flex-grow px-4 py-2 border focus:outline-none w-full transition-all duration-200
-                         ${error ? "border-red-500 focus:border-red-500"
-                                : isValid ? "border-green-500 focus:border-green-500"
-                                    : "border-gray-300 focus:border-blue-500"
-                            }`}
+                        placeholder="Enter your email"
+                        error={errors.email}
                     />
-                    {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
                 </div>
 
                 <div className="ml-2">

@@ -2,7 +2,7 @@ import NewsLatterForm from "./NewsletterForm";
 
 const NewsLatter = () => {
     return (
-        <div className="max-w-10/12 mx-auto p-6">
+        <div className="max-w-10/12 mx-auto p-6 pt-30">
             <div className="bg-gray-50 shadow-sm rounded-lg p-8 flex flex-col md:flex-row justify-between items-center gap-6">
 
                 {/* Left Section */}

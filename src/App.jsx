@@ -1,4 +1,6 @@
 import './App.css'
+import ContactUs from './components/contact-us/ContactUs';
+import Navbar from './components/navbar/Navbar';
 import NewsLatter from './components/newsletter/NewsLatter'
 import { ToastContainer, Bounce } from 'react-toastify';
 
@@ -19,7 +21,9 @@ function App() {
           theme="light"
           transition={Bounce}
         />
+        <Navbar />
         <NewsLatter />
+        <ContactUs />
       </div>
     </>
   )
