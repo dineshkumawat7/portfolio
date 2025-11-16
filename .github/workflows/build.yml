@@ -40,6 +40,8 @@ on:
 # ------------------------------------------------------------
 env:
   NODE_VERSION: 22
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
 # ============================================================
 # JOB: BUILD
@@ -87,7 +89,26 @@ jobs:
         run: npm run build
 
       # ------------------------------------------------------------
-      # STEP 5: Build Source Code
+      # STEP 5: Cache SonarQube packages
+      # ------------------------------------------------------------
+      - name: Cache SonarQube packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      # ------------------------------------------------------------
+      # STEP 6: SonarQube scan
+      # ------------------------------------------------------------
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@v2
+        env:
+          SONAR_TOKEN: ${{ env.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ env.SONAR_HOST_URL }}
+
+      # ------------------------------------------------------------
+      # STEP 7: Build Source Code
       # ------------------------------------------------------------
       - name: Upload artifact for potential deployment
         uses: actions/upload-artifact@v4
