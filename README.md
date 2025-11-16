@@ -1,5 +1,6 @@
-[![CI - Build (React)](https://github.com/dineshkumawat7/portfolio/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/dineshkumawat7/portfolio/actions/workflows/build.yml)
-[![CD - Deploy (React)](https://github.com/dineshkumawat7/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/dineshkumawat7/portfolio/actions/workflows/deploy.yml)
+[![CI - Build (React)](https://github.com/dineshkumawat7/portfolio/actions/workflows/build.yml/badge.svg?branch=dev)](https://github.com/dineshkumawat7/portfolio/actions/workflows/build.yml)
+[![CD - Deploy (React)](https://github.com/dineshkumawat7/portfolio/actions/workflows/deploy.yml/badge.svg?branch=dev)](https://github.com/dineshkumawat7/portfolio/actions/workflows/deploy.yml)
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
