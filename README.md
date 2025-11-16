@@ -3,6 +3,14 @@
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=dineshkumawat7_portfolio)](https://sonarcloud.io/summary/new_code?id=dineshkumawat7_portfolio)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dineshkumawat7_portfolio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=dineshkumawat7_portfolio)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=dineshkumawat7_portfolio&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=dineshkumawat7_portfolio)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=dineshkumawat7_portfolio&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=dineshkumawat7_portfolio)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=dineshkumawat7_portfolio&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=dineshkumawat7_portfolio)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=dineshkumawat7_portfolio&metric=coverage)](https://sonarcloud.io/summary/new_code?id=dineshkumawat7_portfolio)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=dineshkumawat7_portfolio&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=dineshkumawat7_portfolio)
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
