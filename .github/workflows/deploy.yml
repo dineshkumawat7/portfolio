@@ -1,0 +1,109 @@
+# ============================================================
+# REACT DEPLOYMENT PIPELINE
+# ------------------------------------------------------------
+# This GitHub Actions workflow automates:
+# 1. Downloading the build artifact from CI workflow
+# 2. Configuring GitHub Pages deployment settings
+# 3. Uploading artifacts to GitHub Pages
+# 4. Deploying to GitHub Pages on specified branches
+# 5. Environment selection based on branch (Dev/UAT/Prod)
+# ============================================================
+name: CD - Deploy (React)
+
+# ============================================================
+# TRIGGERS
+# ------------------------------------------------------------
+# 1) Auto-deploy on pushes to: dev, uat, prod, master branches
+# 2) Manual trigger enabled (workflow_dispatch) with selectable branch
+# ============================================================
+on:
+  push:
+    branches:
+      - dev
+      - uat
+      - prod
+      - master
+
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: "Select the branch to deploy"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+          - dev
+          - uat
+          - prod
+          - master
+
+# ============================================================
+# REQUIRED PERMISSIONS FOR GITHUB PAGES DEPLOYMENT
+# ============================================================
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# ============================================================
+# JOB: DEPLOY
+# ------------------------------------------------------------
+# This job performs:
+# - Download build artifacts from CI workflow
+# - Configure GitHub Pages settings
+# - Upload artifacts to GitHub Pages
+# - Deploy application to GitHub Pages
+# - Environment routing based on branch (Dev/UAT/Prod)
+# ============================================================
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    # -------------------------------------------------------------------
+    # ENVIRONMENT SELECTION BASED ON BRANCH
+    # -------------------------------------------------------------------
+    environment: >
+      ${{
+        startsWith(github.ref, 'refs/heads/dev') && 'Development' ||
+        startsWith(github.ref, 'refs/heads/uat') && 'UAT' ||
+        'Production'
+      }}
+
+    steps:
+      # -------------------------------------------------------------------
+      # STEP 1: Checkout Repo (required for Pages deployment)
+      # -------------------------------------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.target_branch || github.ref }}
+
+      # -------------------------------------------------------------------
+      # STEP 2: Download Build Artifact created in CI Workflow
+      # -------------------------------------------------------------------
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: react-build
+          path: build
+
+      # -------------------------------------------------------------------
+      # STEP 3: Configure GitHub Pages
+      # -------------------------------------------------------------------
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      # -------------------------------------------------------------------
+      # STEP 4: Upload build folder as GitHub Pages artifact
+      # -------------------------------------------------------------------
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+      # -------------------------------------------------------------------
+      # STEP 5: Deploy to GitHub Pages
+      # -------------------------------------------------------------------
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

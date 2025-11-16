@@ -1,0 +1,96 @@
+# ============================================================
+# REACT BUILD PIPELINE
+# ------------------------------------------------------------
+# This GitHub Actions workflow automates:
+# 1. Installing Node.js & project dependencies
+# 2. Running React build for validation
+# 3. Uploading build artifacts for deployment workflows
+# 4. Triggered on every commit for ALL branches
+# ============================================================
+name: CI - Build (React)
+
+# ------------------------------------------------------------
+# TRIGGERS
+# ------------------------------------------------------------
+# 1) Auto-build on every push to any branch
+# 2) Auto-build on PRs
+# 3) Manual trigger (workflow_dispatch) with selectable branch
+# ------------------------------------------------------------
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: "Select the branch to build"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+          - dev
+          - uat
+          - prod
+          - master
+
+# ------------------------------------------------------------
+# GLOBAL ENVIRONMENT VARIABLES
+# ------------------------------------------------------------
+env:
+  NODE_VERSION: 22
+
+# ============================================================
+# JOB: BUILD
+# ------------------------------------------------------------
+# This job performs:
+# - Repository checkout
+# - Node.js environment setup
+# - Dependency installation
+# - React application build
+# - Build artifact upload for deploy pipelines
+# ============================================================
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ------------------------------------------------------------
+      # STEP 1: Checkout Source Code
+      # ------------------------------------------------------------
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.inputs.target_branch || github.ref }}
+
+      # ------------------------------------------------------------
+      # STEP 2: Set up Node.js ${{ env.NODE_VERSION }}
+      # ------------------------------------------------------------
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      # ------------------------------------------------------------
+      # STEP 3: Install Project Dependencies (with cache)
+      # ------------------------------------------------------------
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+      # ------------------------------------------------------------
+      # STEP 4: Build Source Code
+      # ------------------------------------------------------------
+      - name: Run React build
+        run: npm run build
+
+      # ------------------------------------------------------------
+      # STEP 5: Build Source Code
+      # ------------------------------------------------------------
+      - name: Upload artifact for potential deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-build
+          path: build/

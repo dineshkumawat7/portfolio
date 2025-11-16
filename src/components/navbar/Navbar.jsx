@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { FiMenu, FiX, FiSearch } from "react-icons/fi";
 import { FaUserAlt } from "react-icons/fa";
+import LoginForm from "../auth/LoginForm";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeLink, setActiveLink] = useState("Home");
+    const toggleModal = () => setIsOpen(!isOpen);
 
     const navLinks = [
         { name: "Home", href: "#home" },
@@ -59,10 +61,44 @@ const Navbar = () => {
                     </div>
 
                     {/* Login Button */}
-                    <button className="hidden md:flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-sm transition-colors duration-200 cursor-pointer">
+                    <button className="hidden md:flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-sm transition-colors duration-200 cursor-pointer" onClick={toggleModal}>
                         <FaUserAlt className="text-sm" />
                         <span>Login</span>
                     </button>
+
+                    {/* Modal (conditionally rendered) */}
+                    {isOpen && (
+                        <>
+                            {/* Background Overlay */}
+                            <div
+                                className="fixed inset-0 bg-opacity-50 backdrop-blur-sm transition-opacity"
+                                onClick={toggleModal} // Close when clicking outside
+                            ></div>
+
+                            {/* Modal Box */}
+                            <div className="fixed inset-0 flex items-center justify-center">
+                                <div className="bg-white rounded-2xl shadow-xl w-80 p-6 relative animate-fadeIn">
+                                    {/* Close Button */}
+                                    <button
+                                        onClick={toggleModal}
+                                        className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+                                    >
+                                        ✕
+                                    </button>
+
+                                    {/* Modal Content */}
+                                    <LoginForm />
+
+                                    <button
+                                        onClick={toggleModal}
+                                        className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+                                    >
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </>
+                    )}
 
                     {/* Hamburger Menu (Mobile) */}
                     <button
