@@ -1,3 +1,4 @@
+[![CI - Build (React)](https://github.com/dineshkumawat7/portfolio/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/dineshkumawat7/portfolio/actions/workflows/build.yml)
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
