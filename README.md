@@ -1,7 +1,7 @@
 [![CI - Build (React)](https://github.com/dineshkumawat7/portfolio/actions/workflows/build.yml/badge.svg?branch=dev)](https://github.com/dineshkumawat7/portfolio/actions/workflows/build.yml)
 [![CD - Deploy (React)](https://github.com/dineshkumawat7/portfolio/actions/workflows/deploy.yml/badge.svg?branch=dev)](https://github.com/dineshkumawat7/portfolio/actions/workflows/deploy.yml)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dineshkumawat7_portfolio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=dineshkumawat7_portfolio)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=dineshkumawat7_portfolio)](https://sonarcloud.io/summary/new_code?id=dineshkumawat7_portfolio)
 
 # React + Vite
 
