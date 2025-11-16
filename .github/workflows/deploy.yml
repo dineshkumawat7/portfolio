@@ -13,11 +13,15 @@ name: CD - Deploy (React)
 # ============================================================
 # TRIGGERS
 # ------------------------------------------------------------
-# 1) Auto-deploy on pushes to: dev, uat, prod, master branches
-# 2) Manual trigger enabled (workflow_dispatch) with selectable branch
+# 1) Auto-deploy after Build workflow completes successfully
+# 2) Only deploy on: dev, uat, prod, master branches
+# 3) Manual trigger enabled (workflow_dispatch) with selectable branch
 # ============================================================
 on:
-  push:
+  workflow_run:
+    workflows: ["CI - Build (React)"]
+    types:
+      - completed
     branches:
       - dev
       - uat
