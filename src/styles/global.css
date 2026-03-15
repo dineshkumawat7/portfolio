@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+* {
+  transition-property: background-color, color, border-color, fill, stroke;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+@keyframes phone-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-25deg);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+  75% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-phone {
+  animation: phone-ring 2.5s infinite;
+}
+
+.dot-bg {
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}
