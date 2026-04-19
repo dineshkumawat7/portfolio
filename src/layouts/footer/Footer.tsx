@@ -37,7 +37,7 @@ const Footer = () => {
     <footer className="relative bg-white dark:bg-neutral-950 border-t border-gray-200 dark:border-slate-800">
       {/* Main Content Container */}
       <Container>
-        <div className="flex flex-wrap -mx-4 py-5 gap-10 sm:gap-0">
+        <div className="flex flex-wrap -mx-4 gap-10 sm:gap-0">
           {/*Column-1 - FooterBrand Section */}
           <div className="w-full px-4 sm:w-2/3 lg:w-5/12">
             <div className="mb-5">

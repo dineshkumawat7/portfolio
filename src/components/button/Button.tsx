@@ -1,5 +1,5 @@
 import type React from "react";
-import type { ButtonProps } from "./button.types";
+import type { ButtonProps } from "../../types/button.types";
 import clsx from "clsx";
 
 const variantStyles = {

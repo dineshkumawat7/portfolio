@@ -4,12 +4,12 @@ import Container from "../../components/layout/Container";
 import { IoIosNotificationsOutline } from "react-icons/io";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "About", href: "#", current: false },
-  { name: "Skills", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Services", href: "#", current: false },
-  { name: "Contact", href: "#", current: false },
+  { name: "Home", href: "/", current: true },
+  { name: "About", href: "/about", current: false },
+  { name: "Skills", href: "/skills", current: false },
+  { name: "Projects", href: "/projects", current: false },
+  { name: "Services", href: "/services", current: false },
+  { name: "Contact", href: "/contact", current: false },
 ];
 
 export default function Navbar() {
@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-white dark:bg-neutral-950 border-b border-gray-200 dark:border-slate-800">
-      <Container>
+      <Container className="py-0!">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-start sm:items-stretch">
             <div className="flex shrink-0 items-center">
