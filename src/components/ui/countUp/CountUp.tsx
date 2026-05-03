@@ -3,7 +3,7 @@
 import { useEffect, useRef, useCallback } from "react";
 import { useInView, useMotionValue, useSpring } from "motion/react";
 import type { FC } from "react";
-import type { CountUpProps } from "./count-up.types";
+import type { CountUpProps } from "./countUp.types";
 
 export const CountUp: FC<CountUpProps> = ({
   to,

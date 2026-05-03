@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import Footer from "./layouts/footer/Footer";
 import Navbar from "./layouts/navbar/Navbar";
@@ -14,10 +14,15 @@ import QuoteCard from "./layouts/QuoteCard";
 function App() {
   return (
     // <Routes>
-    //   <Route path="/" element={<Layout />}></Route>
-    //   <Route path="/home" element={<Home />} />
-    //   <Route path="/Skills" element={<Skills />} />
-    //   <Route path="/contact" element={<Contact />} />
+    //   <Route path="/" element={<Layout />}>
+    //     <Route index element={<Home />} />
+    //     <Route path="home" element={<Navigate to="/" replace />} />
+    //     <Route path="/about" element={<AboutPage />} />
+    //     <Route path="/skills" element={<Skills />} />
+    //     <Route path="/projects" element={<ProjectsPage />} />
+    //     {/* <Route path="/services" element={<Services />} /> */}
+    //     <Route path="/contact" element={<Contact />} />
+    //   </Route>
     // </Routes>
 
     <>

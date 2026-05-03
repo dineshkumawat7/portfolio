@@ -1,17 +1,22 @@
+import { FaBriefcase, FaProjectDiagram, FaSmile } from "react-icons/fa";
+
 export const heroStatsData = [
   {
-    value: 15,
+    value: 3,
     suffix: " Y.",
     label: "Experience",
+    icon: FaBriefcase,
   },
   {
-    value: 250,
+    value: 25,
     suffix: "+",
     label: "Projects Completed",
+    icon: FaProjectDiagram,
   },
   {
-    value: 58,
+    value: 10,
     suffix: "",
     label: "Happy Clients",
+    icon: FaSmile,
   },
 ];

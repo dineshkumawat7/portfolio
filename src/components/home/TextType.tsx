@@ -7,7 +7,7 @@ import React, {
   useCallback,
 } from "react";
 import { gsap } from "gsap";
-import type { TextTypeProps } from "./text-type.types";
+import type { TextTypeProps } from "./textType.types";
 
 const TextType: React.FC<TextTypeProps> = ({
   text,

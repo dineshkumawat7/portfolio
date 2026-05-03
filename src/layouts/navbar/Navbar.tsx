@@ -2,6 +2,7 @@ import { useState } from "react";
 import ThemeToggle from "../../components/ui/ThemeToggle";
 import Container from "../../components/layout/Container";
 import { IoIosNotificationsOutline } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -14,9 +15,11 @@ const navigation = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-neutral-950 border-b border-gray-200 dark:border-slate-800">
+    <nav
+      className="sticky top-0 z-50 bg-linear-to-r from-violet-50 to-blue-50 dark:from-slate-900 dark:to-neutral-950 border-b 
+              border-gray-300 dark:border-slate-800"
+    >
       <Container className="py-0!">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-start sm:items-stretch">
@@ -25,22 +28,22 @@ export default function Navbar() {
                 <span className="font-bold text-3xl text-teal-500">DINESH</span>
               </a>
             </div>
-
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
-                  <a
+                  <NavLink
                     key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? "page" : undefined}
-                    className={`rounded-sm px-3 py-2 text-sm font-medium ${
-                      item.current
-                        ? "bg-teal-500 text-white"
-                        : "text-gray-950 hover:text-white dark:text-white hover:bg-teal-500"
-                    }`}
+                    to={item.href}
+                    className={({ isActive }) =>
+                      `rounded-sm px-3 py-2 text-sm font-medium ${
+                        isActive
+                          ? "bg-teal-500 text-white"
+                          : "text-gray-950 hover:text-white dark:text-white hover:bg-teal-500"
+                      }`
+                    }
                   >
                     {item.name}
-                  </a>
+                  </NavLink>
                 ))}
               </div>
             </div>
@@ -112,19 +115,20 @@ export default function Navbar() {
         <div className="sm:hidden" id="mobile-menu">
           <div className="space-y-1 px-2 pt-2 pb-3">
             {navigation.map((item) => (
-              <a
+              <NavLink
                 key={item.name}
-                href={item.href}
-                aria-current={item.current ? "page" : undefined}
-                className={`block rounded-sm px-3 py-2 text-base font-medium ${
-                  item.current
-                    ? "bg-teal-500 text-white"
-                    : "text-gray-950 hover:bg-teal-500 hover:text-white dark:text-white"
-                }`}
+                to={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `block rounded-sm px-3 py-2 text-base font-medium ${
+                    isActive
+                      ? "bg-teal-500 text-white"
+                      : "text-gray-950 hover:bg-teal-500 hover:text-white dark:text-white"
+                  }`
+                }
               >
                 {item.name}
-              </a>
+              </NavLink>
             ))}
           </div>
         </div>

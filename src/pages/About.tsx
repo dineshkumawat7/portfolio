@@ -50,7 +50,7 @@ export default function AboutPage() {
             bg-[radial-gradient(ellipse_55%_40%_at_15%_15%,rgba(110,231,183,0.07),transparent_60%),radial-gradient(ellipse_50%_50%_at_85%_75%,rgba(139,92,246,0.07),transparent_60%)]"
           />
           <h1
-            className="text-center font-extrabold tracking-tight text-[#5a5a78] dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3"
+            className="text-center font-extrabold tracking-tight text-[#5a5a78] dark:text-gray-300 text-5xl lg:text-6xl mb-3"
             style={{ letterSpacing: "-0.03em" }}
           >
             About{" "}
@@ -224,9 +224,13 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="pt-15">
-          <h1 className="text-center text-5xl font-extrabold mb-10">
-            Education
+          <h1 className="text-center text-5xl font-extrabold mb-2">
+            My Education
           </h1>
+          <h3 className="text-center text-2xl font-bold mb-10 text-gray-600">
+            Education is not the learning of facts, but the training of the mind
+            to think.
+          </h3>
           <div className="space-y-6">
             {educationData.map((item, index) => (
               <EducationCard
