@@ -1,12 +1,5 @@
-import {
-  SiNextdotjs,
-  SiReact,
-  SiSpringboot,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
 import { Button } from "../components/button/Button";
-import Container from "../components/layout/Container";
+import Container from "../layouts/Container";
 import LogoLoop from "../components/logo-loop/LogoLoop";
 import Radar from "../components/ui/Radar";
 import { MdPlace } from "react-icons/md";
@@ -17,6 +10,15 @@ import { educationData } from "../data/educationData ";
 import resume from "../assets/doc/Dinesh-CV.pdf";
 import { experienceData } from "../data/experienceData";
 import ExperienceCard from "../components/about/ExperienceCard";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiSpringboot,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import SectionHeader from "../components/ui/SectionHeader";
+import { IoBagCheckSharp } from "react-icons/io5";
 
 export default function AboutPage() {
   const techLogos = [
@@ -42,108 +44,87 @@ export default function AboutPage() {
     window.open(resume, "_blank"); // opens in new tab
   };
   return (
-    <section className="relative bg-white dark:bg-black transition">
+    <section className="relative bg-white dark:bg-black">
       <Container>
-        <div className="text-center mb-12 sm:mb-14 md:mb-16">
-          <div
-            className="pointer-events-none absolute inset-0
-            bg-[radial-gradient(ellipse_55%_40%_at_15%_15%,rgba(110,231,183,0.07),transparent_60%),radial-gradient(ellipse_50%_50%_at_85%_75%,rgba(139,92,246,0.07),transparent_60%)]"
-          />
-          <h1
-            className="text-center font-extrabold tracking-tight text-[#5a5a78] dark:text-gray-300 text-5xl lg:text-6xl mb-3"
-            style={{ letterSpacing: "-0.03em" }}
-          >
-            About{" "}
-            <span
-              className="text-transparent"
-              style={{ WebkitTextStroke: "1.5px oklch(70.4% 0.14 182.503)" }}
-            >
-              Me
-            </span>
-          </h1>
-          <p className="font-medium text-[20px] text-[#5a5a78] dark:text-gray-300 text-center mb-11 transition-colors duration-300 max-w-3xl mx-auto">
-            Designing, building, and constantly learning — driven by curiosity
-            and creativity.
-          </p>
-        </div>
-        <div className="w-full grid md:grid-cols-2 gap-10 items-center">
+        <SectionHeader
+          title="About"
+          highlight="Me"
+          description="Designing, building, and constantly learning — driven by curiosity and creativity."
+        />
+        <div className="w-full grid md:grid-cols-2 gap-20">
           {/* Left Image */}
-          <div className="relative w-full h-screen">
-            <div className="absolute inset-0">
-              <Radar
-                speed={0.2}
-                scale={1}
-                ringCount={10}
-                spokeCount={10}
-                ringThickness={0.05}
-                spokeThickness={0.01}
-                sweepSpeed={1}
-                sweepWidth={2}
-                sweepLobes={1}
-                color="#9f29ff"
-                backgroundColor="#000000"
-                falloff={2}
-                brightness={1}
-                enableMouseInteraction
-                mouseInfluence={0.1}
-              />
-            </div>
-            <div className="relative z-10 flex items-center justify-center h-full w-full">
-              <div className="rounded-2xl overflow-hidden shadow-lg w-72 h-96">
-                <img
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
-                  alt="Profile"
-                  className="w-full h-full object-cover transition duration-500"
-                />
-              </div>
-            </div>
-          </div>
-          {/* Right Content */}
-          <div>
+          <div className="w-full">
             <h1
-              className="font-extrabold tracking-tight text-[#5a5a78] dark:text-gray-300 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+              className="font-extrabold tracking-tight text-4xl lg:text-5xl"
               style={{ letterSpacing: "-0.03em" }}
             >
               I'm{" "}
               <span
-                className="text-transparent"
-                style={{ WebkitTextStroke: "1.5px oklch(70.4% 0.14 182.503)" }}
+                className="font-bold bg-linear-to-r from-teal-500 via-cyan-500 to-blue-500 bg-clip-text text-transparent"
               >
                 Dinesh Kumawat
               </span>
             </h1>
             <p className="text-2xl font-bold mb-4">Software Developer</p>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
-              I’m a passionate software developer based in Jaipur, India,
-              focused on building scalable, high-performance web applications. I
-              enjoy turning complex problems into simple, elegant solutions
-              through clean and efficient code.
+            <p className="leading-relaxed mb-6 font-semibold">
+              A Software Developer based in Jaipur, India, passionate about designing and building scalable, high-performance web
+              applications that deliver real value to users.
               <br></br>
-              With a strong interest in modern technologies, I continuously
-              explore areas like cloud computing, system design, and full-stack
-              development. I thrive on learning, experimenting, and creating
-              impactful digital experiences that solve real-world challenges.
+              My journey into software development started with curiosity about how websites and digital systems work behind the scenes.
+              That curiosity gradually turned into a deep interest in software engineering, system design, and building full-stack
+              applications that are both efficient and user-friendly.
+              <br></br>
+              I specialize in full-stack web development, focusing on creating clean, maintainable, and scalable code.
+              I enjoy working across both frontend and backend systems — from designing intuitive user interfaces to building
+              robust APIs and backend architectures.
+              <br></br>
+              Beyond coding, I enjoy solving real-world problems and turning ideas into practical digital solutions.
+              I’m always excited to work on challenging projects that require creativity, logic, and technical depth.
+              <br></br>
+              My ultimate goal is to build impactful software products that are fast, scalable, and meaningful to users.
             </p>
 
-            {/* Info */}
-            <div className="mb-6 space-y-3 text-gray-700">
-              <div className="flex items-center gap-3">
-                <IoMdMail className="text-teal-500 text-lg" />
-                <span className="font-semibold text-black">Email:</span>
-                <span className="break-all">dkumawat7627@gmail.com</span>
-              </div>
+          </div>
 
-              <div className="flex items-center gap-3">
-                <FaPhoneAlt className="text-teal-500 text-sm" />
-                <span className="font-semibold text-black">Phone:</span>
-                <span>+91 7627000907</span>
+          {/* Right Content */}
+          <div className="m-auto items-center justify-center">
+            <div className="space-y-4 mb-6 font-semibold justify-center">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl 
+                    bg-blue-500/20 text-blue-500">
+                  <IoMdMail className="text-xl" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Email</p>
+                  <p>
+                    dkumawat7627@gmail.com
+                  </p>
+                </div>
               </div>
-
-              <div className="flex items-center gap-3">
-                <MdPlace className="text-teal-500 text-lg" />
-                <span className="font-semibold text-black">Location:</span>
-                <span>Jaipur, Rajasthan, India – 302012</span>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl 
+                    bg-green-500/20 text-green-500">
+                  <FaPhoneAlt className="text-xl" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Phone</p>
+                  <p>
+                    +91 7627000907
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl 
+                    bg-pink-500/20 text-pink-500">
+                  <MdPlace className="text-xl" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Location</p>
+                  <p>
+                    Jaipur, Rajasthan, India – 302012
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -155,18 +136,18 @@ export default function AboutPage() {
             {/* Quote Card */}
             <div className="my-10 bg-gray-900/80 backdrop-blur-md p-6 rounded-2xl shadow-lg">
               <p className="text-green-300 italic">
-                “The cheapest, fastest, and most reliable components are those
-                that aren’t there.”
+                “The cheapest, fastest, and most reliable components are those that aren’t there.”
               </p>
               <p className="text-right text-pink-400 mt-2">- Gordon Bell</p>
             </div>
           </div>
         </div>
         <div className="py-10">
-          <h1 className="text-center text-5xl font-extrabold mb-10">
-            Teck <span className="text-teal-500">Stack</span>
+          {/* Heading */}
+          <h1 className="text-center text-4xl font-extrabold mb-2">
+            Tech Stack
           </h1>
-          <div className="relative h-50 overflow-hidden bg-transparent flex items-center justify-center">
+          <div className="relative h-50 overflow-hidden bg-transparent flex items-center justify-center py-30">
             {/* Basic horizontal loop */}
             <LogoLoop
               logos={techLogos}
@@ -179,7 +160,7 @@ export default function AboutPage() {
               // fadeOut
               // fadeOutColor={isDark ? "#000000" : "#ffffff"}
               ariaLabel="Technology partners"
-              className="text-gray-800 dark:text-white"
+              className="text-gray-700 dark:text-gray-200"
             />
           </div>
           <div className="relative h-50 overflow-hidden bg-transparent flex items-center justify-center">
@@ -201,21 +182,24 @@ export default function AboutPage() {
         </div>
         <div className="max-w-5xl mx-auto">
           {/* Heading */}
-          <h2 className="text-4xl font-bold mb-10 flex items-center gap-2">
-            <span>💼</span>
-            <span className="text-black">Experience</span>
-          </h2>
+          <h1 className="text-center text-4xl font-extrabold mb-2">
+            My Experience
+          </h1>
+          <p className="text-center text-lg font-semibold mb-10">
+            Building practical skills through real-world projects, continuous learning, and creative problem-solving.
+          </p>
 
           <div className="relative">
             {/* Vertical Line */}
-            <div className="absolute left-5 top-0 w-1 h-full bg-purple-900"></div>
+            <div className="absolute left-5 top-0 w-1 h-full bg-gray-300 dark:bg-gray-600"></div>
 
             <div className="space-y-12">
               {experienceData.map((exp, index) => (
                 <div key={index} className="relative flex items-start">
                   {/* Circle Icon */}
-                  <div className="absolute left-0 flex items-center justify-center w-10 h-10 bg-white rounded-full border-2 border-gray-600 shadow-md">
-                    <span className="text-white">💼</span>
+                  <div className="absolute left-0 flex items-center justify-center w-10 h-10 bg-gray-100 dark:bg-gray-400 rounded-full 
+                      border-2 border-gray-300 dark:border-gray-600 shadow-md">
+                    <span className="text-gray-500 dark:text-gray-700 text-xl"><IoBagCheckSharp /></span>
                   </div>
                   <ExperienceCard key={index} data={exp} />
                 </div>
@@ -224,13 +208,12 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="pt-15">
-          <h1 className="text-center text-5xl font-extrabold mb-2">
+          <h1 className="text-center text-4xl font-extrabold mb-2">
             My Education
           </h1>
-          <h3 className="text-center text-2xl font-bold mb-10 text-gray-600">
-            Education is not the learning of facts, but the training of the mind
-            to think.
-          </h3>
+          <p className="text-center text-lg font-semibold mb-10">
+            Education is not the learning of facts, but the training of the mind to think.
+          </p>
           <div className="space-y-6">
             {educationData.map((item, index) => (
               <EducationCard

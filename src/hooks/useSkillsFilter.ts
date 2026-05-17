@@ -1,8 +1,20 @@
 import { useState, useMemo } from "react";
 import { skillsData } from "../data/skills";
-import type { Skill, SkillCategory } from "../types/skills.types";
 
 export type ActiveFilter = SkillCategory | "All";
+export type SkillCategory = | "All" | "Backend" | "Frontend" | "DevOps" | "Cloud" | "Database" | "Testing" | "Other";
+export type ProficiencyLevel = "Expert" | "Advanced" | "Intermediate";
+
+export interface Skill {
+  id: string;
+  name: string;
+  category: SkillCategory;
+  proficiency: ProficiencyLevel;
+  icon: string;
+  yearsOfExperience: number;
+  description: string;
+  tags: string[];
+}
 
 export function useSkillsFilter() {
   const [activeFilter, setActiveFilter] = useState<ActiveFilter>("All");

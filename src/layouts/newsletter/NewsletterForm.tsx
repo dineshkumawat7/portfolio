@@ -15,15 +15,14 @@ export const NewsletterForm = () => {
           leftIcon={<MdEmail />}
           required
           helperText="We respect your privacy. Unsubscribe anytime with one click."
-          className="pr-36"
         />
 
         <Button
           type="submit"
-          className="rounded-lg! shadow-none! absolute right-1 top-7 h-7.5"
+          className="mt-4 rounded-lg"
         >
-          <SiMinutemailer />
           Subscribe
+          <SiMinutemailer />
         </Button>
       </div>
     </form>

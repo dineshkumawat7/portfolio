@@ -396,7 +396,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
 
             {/* Title Below Logo */}
             {(item as any).title && (
-              <span className="mt-2 text-lg font-bold text-gray-700 transition">
+              <span className="mt-2 text-lg font-bold text-gray-700 dark:text-gray-200 transition">
                 {(item as any).title}
               </span>
             )}

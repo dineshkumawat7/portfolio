@@ -1,6 +1,18 @@
 import type React from "react";
-import type { ButtonProps } from "../../types/button.types";
 import clsx from "clsx";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+export type ButtonSize = "sm" | "md" | "lg";
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
+  isLoading?: boolean;
+  children: ReactNode;
+}
 
 const variantStyles = {
   primary: "bg-teal-500 text-white hover:bg-teal-600",
@@ -15,17 +27,8 @@ const sizeStyles = {
   lg: "px-6 py-3 text-lg",
 };
 
-export const Button: React.FC<ButtonProps> = ({
-  children,
-  variant = "primary",
-  size = "md",
-  leftIcon,
-  rightIcon,
-  isLoading,
-  className,
-  disabled,
-  ...props
-}) => {
+export const Button: React.FC<ButtonProps> = ({ children, variant = "primary", size = "md", leftIcon, rightIcon,
+  isLoading, className, disabled, ...props }) => {
   return (
     <button
       className={clsx(

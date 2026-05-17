@@ -6,11 +6,7 @@ interface LiveDateTimeProps {
   className?: string;
 }
 
-export const LiveDateTime = ({
-  timeZone = "Asia/Kolkata",
-  locale = "en-IN",
-  className = "",
-}: LiveDateTimeProps) => {
+export const LiveDateTime = ({ timeZone = "Asia/Kolkata", locale = "en-IN", className = "", }: LiveDateTimeProps) => {
   const [dateTime, setDateTime] = useState("");
 
   useEffect(() => {

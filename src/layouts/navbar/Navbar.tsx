@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ThemeToggle from "../../components/ui/ThemeToggle";
-import Container from "../../components/layout/Container";
+import Container from "../Container";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 
@@ -17,8 +17,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <nav
-      className="sticky top-0 z-50 bg-linear-to-r from-violet-50 to-blue-50 dark:from-slate-900 dark:to-neutral-950 border-b 
-              border-gray-300 dark:border-slate-800"
+      className="sticky top-0 z-50 bg-gray-100 dark:bg-neutral-950 border-b border-gray-300 dark:border-slate-800"
     >
       <Container className="py-0!">
         <div className="relative flex h-16 items-center justify-between">

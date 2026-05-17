@@ -12,8 +12,8 @@ export const FilterBar: React.FC<Props> = ({ active, onChange, options }) => {
   return (
     <div className="w-full bg-transparent">
       <div
-        className="w-full rounded-2xl bg-gray-100 dark:bg-[#0f172a]/80 backdrop-blur-md border border-gray-300 
-      dark:border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.1)] p-1"
+        className="w-full rounded-2xl bg-gray-100 dark:bg-neutral-900 backdrop-blur-md border border-gray-300 dark:border-gray-300/30 
+            shadow-[0_0_15px_rgba(0,0,0,0.1)] p-1"
       >
         <div className="overflow-x-auto no-scrollbar">
           <div className="flex w-max gap-2">

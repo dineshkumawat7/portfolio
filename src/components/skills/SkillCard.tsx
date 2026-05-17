@@ -1,14 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export type SkillCategory =
-  | "All"
-  | "Backend"
-  | "Frontend"
-  | "DevOps"
-  | "Cloud"
-  | "Database"
-  | "Testing"
-  | "Other";
+export type SkillCategory =| "All" | "Backend" | "Frontend" | "DevOps" | "Cloud" | "Database" | "Testing" | "Other";
 export type ProficiencyLevel = "Expert" | "Advanced" | "Intermediate";
 
 export interface Skill {
@@ -49,21 +41,14 @@ export const SkillCard: React.FC<Props> = ({ skill, index }) => {
   return (
     <div
       ref={ref}
-      className="relative flex flex-col gap-3 p-5 bg-gray-100 dark:bg-[#0f172a]/80 backdrop-blur-md border 
-      border-gray-300 dark:border-white/10 overflow-hidden rounded-2xl transition-all duration-500 ease-in-out
-        hover:scale-102 shadow-[0_0_15px_rgba(0,0,0,0.1)]"
+      className="relative flex flex-col gap-3 p-5 border bg-gray-100 dark:bg-neutral-900 border-gray-300 dark:border-gray-300/30 
+          overflow-hidden rounded-2xl transition-all duration-500 ease-in-out hover:scale-102 shadow-[0_0_15px_rgba(0,0,0,0.1)]"
       style={{ animationDelay: `${index * 38}ms` }}
     >
-      {/* glow on hover */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300
-        bg-[radial-gradient(circle_at_0%_0%,rgba(110,231,183,0.05),transparent_55%)] pointer-events-none"
-      />
-
       <div className="flex items-start justify-between">
-        <span className="text-4xl leading-none">{skill.icon}</span>
+        <span className="text-5xl leading-none">{skill.icon}</span>
         <div className="flex flex-col items-end gap-1">
-          <span className="font-medium text-[15px] tracking-widest uppercase text-[#3e3e58]">
+          <span className="font-bold text-[15px] tracking-widest uppercase">
             {skill.category}
           </span>
           <span
@@ -75,10 +60,10 @@ export const SkillCard: React.FC<Props> = ({ skill, index }) => {
         </div>
       </div>
 
-      <h3 className="text-[25px] font-bold tracking-tight text-gray-700 dark:text-gray-300 leading-tight">
+      <h3 className="text-[25px] font-bold tracking-tight leading-tight">
         {skill.name}
       </h3>
-      <p className="text-[16px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1 line-clamp-2">
+      <p className="text-[16px] leading-relaxed flex-1 line-clamp-2">
         {skill.description}
       </p>
 
@@ -92,7 +77,7 @@ export const SkillCard: React.FC<Props> = ({ skill, index }) => {
             }}
           />
         </div>
-        <span className="font-mono text-[10px] text-[#3e3e58] whitespace-nowrap">
+        <span className="font-mono text-[10px] whitespace-nowrap">
           {skill.yearsOfExperience}y
         </span>
       </div>

@@ -1,5 +1,5 @@
 import { Button } from "../components/button/Button";
-import Container from "../components/layout/Container";
+import Container from "../layouts/Container";
 import { FaHandSpock } from "react-icons/fa";
 import { heroStatsData } from "../data/heroStatsData";
 import { HeroStatCard } from "../components/home/HeroStatCard";
@@ -17,18 +17,11 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import { LiveDateTime } from "../components/home/LiveDateTime ";
-
-const GlowCard = ({ children, className = "" }: any) => (
-  <div className={`relative ${className}`}>
-    <div className="relative rounded-3xl border border-white/10 bg-black/80 backdrop-blur-xl">
-      {children}
-    </div>
-  </div>
-);
+import SectionHeader from "../components/ui/SectionHeader";
 
 const Home = () => {
   return (
-    <section className="relative bg-white dark:bg-neutral-950">
+    <section className="relative bg-white dark:bg-black">
       <div
         className="relative inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0.15)_1px,transparent_1px)] 
             dark:bg-[radial-gradient(circle,rgba(255,255,255,0.2)_1px,transparent_1px)] bg-size-[20px_20px]"
@@ -38,7 +31,7 @@ const Home = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <div className="flex items-center justify-center">
                 <div className="w-full">
-                  <h1 className="text-4xl text-gray-800 dark:text-white md:text-6xl font-bold leading-tight">
+                  <h1 className="text-4xl md:text-6xl font-bold leading-tight">
                     Hello, I’m <br />
                     <TextType
                       text={[
@@ -54,20 +47,14 @@ const Home = () => {
                       textColors={["#31C950", "#432DD7", "#FFD230"]}
                     />
                   </h1>
-
-                  <p className="text-gray-700 dark:text-white">
-                    I'm a Software Engineer who loves building scalable,
-                    high-performance applications. I specialize in backend
-                    architecture, microservices, event-driven systems, and
-                    cloud-native development. My focus is turning complex
-                    problems into elegant, efficient solutions that deliver real
-                    business impact.
+                  <p>
+                    I'm a Software Engineer who loves building scalable, high-performance applications. I specialize in backend
+                    architecture, microservices, event-driven systems, and cloud-native development. My focus is turning complex
+                    problems into elegant, efficient solutions that deliver real business impact.
                   </p>
-
                   <div className="mt-6">
                     <Button leftIcon={<FaHandSpock />}>Say Hello!</Button>
                   </div>
-
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full mt-10">
                     {heroStatsData.map((stat, index) => (
                       <HeroStatCard
@@ -97,37 +84,19 @@ const Home = () => {
                 />
               </div>
             </div>
-            <div className="w-full">
-              <div className="text-center my-20">
-                <div
-                  className="
-                    pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_40%_at_15%_15%,rgba(110,231,183,0.07),
-                    transparent_60%),radial-gradient(ellipse_50%_50%_at_85%_75%,rgba(139,92,246,0.07),transparent_60%)]"
-                />
-                <h1
-                  className="text-center font-extrabold tracking-tight text-[#5a5a78] dark:text-gray-300 text-5xl lg:text-6xl mb-3"
-                  style={{ letterSpacing: "-0.03em" }}
-                >
-                  My{" "}
-                  <span
-                    className="text-transparent"
-                    style={{
-                      WebkitTextStroke: "1.5px oklch(70.4% 0.14 182.503)",
-                    }}
-                  >
-                    World
-                  </span>
-                </h1>
-                <p className="font-medium text-[20px] text-[#5a5a78] dark:text-gray-300 text-center mb-11 transition-colors duration-300 max-w-3xl mx-auto">
-                  I’m Very Flexible With Time Zone Communications
-                </p>
-              </div>
 
+            <section className="w-full">
+              <SectionHeader
+                title="My"
+                highlight="World"
+                description="I’m Very Flexible With Time Zone Communications"
+                className="pt-10"
+              />
               <div className="grid grid-cols-1 md:grid-cols-3 gap-20 md:gap-30 items-center justify-items-center">
                 {/* Left Profile Card */}
                 <div className="w-full h-105">
                   <img
-                    src="src\assets\gif\robot.gif"
+                    src="src\assets\gif\robot-video-from-rawpixel-id-17837069.gif"
                     alt="Dinesh Kumawat"
                     className="w-full h-full object-cover rounded-3xl"
                   />
@@ -146,15 +115,17 @@ const Home = () => {
                         <br />
                         UTC +05:30
                       </div>
-
-                      <div className="h-44 w-44 rounded-full border-2 border-violet-400 shadow-[0_0_40px_rgba(139,92,246,0.8)]" />
+                      <img
+                        src="/src/assets/images/earth.png"
+                        alt="Jaipur"
+                        className="h-50 w-50 object-cover rounded-full shadow-[0_0_40px_rgba(139,92,246,0.8)] animate-[spin_90s_linear_infinite]"
+                      />
                       <div className="text-xl text-zinc-300 font-medium text-center">
                         <LiveDateTime />
                       </div>
                     </div>
                   </div>
                 </div>
-
                 {/* Right Social Card */}
                 <div className="w-full h-105 rounded-3xl bg-linear-to-b from-cyan-600 to-blue-300 p-8 flex flex-col">
                   <h3 className="text-3xl font-bold text-center mb-8 text-white">
@@ -176,7 +147,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </Container>
       </div>

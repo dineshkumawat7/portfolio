@@ -5,10 +5,7 @@ interface SocialCardProps {
   label?: string;
 }
 
-export const SocialCard: React.FC<SocialCardProps> = ({
-  icon: Icon,
-  label,
-}) => {
+export const SocialCard: React.FC<SocialCardProps> = ({ icon: Icon, label, }) => {
   return (
     <button
       type="button"

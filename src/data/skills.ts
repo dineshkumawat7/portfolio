@@ -1,4 +1,15 @@
-import type { Skill } from "../types/skills.types";
+export type SkillCategory = | "All" | "Backend" | "Frontend" | "DevOps" | "Cloud" | "Database" | "Testing" | "Other";
+export type ProficiencyLevel = "Expert" | "Advanced" | "Intermediate";
+export interface Skill {
+  id: string;
+  name: string;
+  category: SkillCategory;
+  proficiency: ProficiencyLevel;
+  icon: string;
+  yearsOfExperience: number;
+  description: string;
+  tags: string[];
+}
 
 export const skillsData: Skill[] = [
   {
@@ -150,6 +161,17 @@ export const skillsData: Skill[] = [
     id: "p5",
     name: "API Design",
     category: "Backend",
+    proficiency: "Expert",
+    icon: "📐",
+    yearsOfExperience: 5,
+    description:
+      "RESTful conventions, versioning, pagination, error standards, and OpenAPI specs.",
+    tags: ["REST", "OpenAPI", "Standards"],
+  },
+  {
+    id: "d1",
+    name: "API Design",
+    category: "DevOps",
     proficiency: "Expert",
     icon: "📐",
     yearsOfExperience: 5,

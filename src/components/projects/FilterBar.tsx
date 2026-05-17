@@ -17,8 +17,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           onClick={() => setActive(filter)}
           className={`px-4 py-1.5 rounded-full text-sm transition ${
             active === filter
-              ? "bg-black text-white dark:bg-white dark:text-black"
-              : "bg-zinc-200 dark:bg-zinc-800"
+              ? "bg-teal-500 text-white"
+              : "bg-gray-100 dark:bg-zinc-800 hover:bg-teal-500"
           }`}
         >
           {filter}

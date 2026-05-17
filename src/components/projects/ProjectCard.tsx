@@ -1,5 +1,13 @@
-import { motion } from "framer-motion";
-import type { Project } from "../../types/project";
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  techStack: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+}
+
 
 interface Props {
   project: Project;
@@ -7,16 +15,16 @@ interface Props {
 
 export const ProjectCard: React.FC<Props> = ({ project }) => {
   return (
-    <motion.div
-      whileHover={{ scale: 1.03 }}
-      className="group relative rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-zinc-900 transition"
+    <div
+      className="group relative rounded-2xl overflow-hidden border bg-gray-100 dark:bg-neutral-900 border-gray-300 dark:border-gray-300/30
+      shadow-[0_0_15px_rgba(0,0,0,0.1)] transition-all duration-500 ease-in-out hover:scale-102"
     >
       <div className="overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
+          className="w-full h-48 object-cover transition duration-500"
         />
       </div>
 
@@ -33,7 +41,9 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
           {project.techStack.map((tech) => (
             <span
               key={tech}
-              className="text-xs px-2 py-1 bg-zinc-200 dark:bg-zinc-800 rounded-full"
+              className="text-[10px] font-medium px-2 py-1 rounded-md transition-all duration-200
+                      bg-gray-200 text-gray-700 border border-gray-300
+                      dark:bg-white/5 dark:text-gray-300 dark:border-white/10"
             >
               {tech}
             </span>
@@ -63,6 +73,6 @@ export const ProjectCard: React.FC<Props> = ({ project }) => {
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };

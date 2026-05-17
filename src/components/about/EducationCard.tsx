@@ -19,8 +19,9 @@ const EducationCard: React.FC<EducationCardProps> = ({
 }) => {
   return (
     <div
-      className="flex flex-col md:flex-row bg-linear-to-r from-slate-800/80 to-slate-600/60 backdrop-blur-md 
-    rounded-2xl overflow-hidden shadow-lg border border-white/10 transition-transform duration-300"
+      className="flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-900 backdrop-blur-md rounded-2xl 
+      overflow-hidden border border-gray-300 dark:border-gray-300/30 transition-transform duration-300
+      shadow-[0_0_15px_rgba(0,0,0,0.1)] text-gray-700 dark:text-gray-200 font-semibold"
     >
       {/* Image Section */}
       <div className="md:w-1/3 w-full h-48 md:h-auto">
@@ -29,14 +30,17 @@ const EducationCard: React.FC<EducationCardProps> = ({
 
       {/* Content Section */}
       <div className="flex flex-col justify-center p-6 md:w-2/3 text-center md:text-left">
-        <h2 className="text-xl md:text-2xl font-bold text-white">{degree}</h2>
+        <h2 className="text-xl md:text-2xl font-bold">{degree}</h2>
 
-        <p className="text-gray-200 mt-1 text-sm md:text-base">{university}</p>
+        <p className="mt-1 text-sm md:text-base">{university}</p>
 
-        <p className="text-white font-semibold mt-2">{duration}{" | "} {status}</p>
+        <p className="font-semibold mt-2">{duration}{" | "} {status}</p>
 
         {status && (
-          <span className="mt-3 inline-block text-xs px-3 py-1 rounded-full bg-green-500/20 text-green-300 w-fit mx-auto md:mx-0">
+          <span className="mt-3 text-[10px] font-medium px-2 py-1 rounded-md
+                bg-gray-200 text-gray-700 border border-gray-300
+                dark:bg-white/5 dark:text-gray-300 dark:border-white/10 w-fit mx-auto md:mx-0">
+        
             {result}
           </span>
         )}

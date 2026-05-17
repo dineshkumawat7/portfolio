@@ -1,10 +1,11 @@
 import { FaClock, FaEnvelope, FaPhone } from "react-icons/fa6";
 import ContactForm from "../components/contact/ContactForm";
 import ContactInfoCard from "../components/contact/ContactInfoCard";
-import Container from "../components/layout/Container";
+import Container from "../layouts/Container";
 import Iframe from "../components/ui/Iframe";
 import { footerSocialLinks } from "../data/footerSocialLinks";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import SectionHeader from "../components/ui/SectionHeader";
 
 const CONTACT_INFO = [
   {
@@ -45,35 +46,18 @@ const Contact = () => {
   return (
     <div className="relative bg-white dark:bg-neutral-950">
       <Container>
-        <div className="text-center mb-12 sm:mb-14 md:mb-16">
-          <div
-            className="pointer-events-none absolute inset-0
-            bg-[radial-gradient(ellipse_55%_40%_at_15%_15%,rgba(110,231,183,0.07),transparent_60%),radial-gradient(ellipse_50%_50%_at_85%_75%,rgba(139,92,246,0.07),transparent_60%)]"
-          />
-          <h1
-            className="text-center font-extrabold tracking-tight text-[#5a5a78] dark:text-gray-300 text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3"
-            style={{ letterSpacing: "-0.03em" }}
-          >
-            Let's Work{" "}
-            <span
-              className="text-transparent"
-              style={{ WebkitTextStroke: "1.5px oklch(70.4% 0.14 182.503)" }}
-            >
-              Together
-            </span>
-          </h1>
-          <p className="font-medium text-[20px] text-[#5a5a78] dark:text-gray-300 text-center mb-11 transition-colors duration-300 max-w-3xl mx-auto">
-            I'm always interested in hearing about new projects and
-            opportunities. Whether you have a question or just want to say
-            hello, feel free to get in touch!
-          </p>
-        </div>
+        <SectionHeader
+          title="Let's Work"
+          highlight="Together"
+          description="I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say
+            hello, feel free to get in touch!"
+        />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-15 py-10">
           {/* LEFT SIDE (ENHANCED CONTENT) */}
           <div className="flex flex-col justify-center space-y-8">
             {/* Heading */}
             <div>
-              <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
+              <h2 className="text-4xl md:text-5xl leading-tight">
                 Got an Idea?
                 <br />
                 <span className="bg-linear-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
@@ -81,34 +65,32 @@ const Contact = () => {
                 </span>
               </h2>
 
-              <p className="text-gray-400 text-lg mt-4">
-                I help turn ideas into clean, modern, and high-performing
-                digital experiences. Tell me what you're thinking — I’ll help
-                shape it.
+              <p className="text-lg mt-4">
+                I help turn ideas into clean, modern, and high-performing digital experiences. Tell me what you're thinking — I’ll help shape it.
               </p>
             </div>
 
             {/* Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-              <div className="p-4 rounded-2xl bg-white/5 border border-gray-300">
+              <div className="p-4 rounded-2xl border border-gray-300 dark:border-gray-300/30">
                 🚀 Fast Delivery
                 <p className="text-gray-400 text-xs mt-1">
                   Quick turnaround without compromising quality
                 </p>
               </div>
-              <div className="p-4 rounded-2xl bg-white/5 border border-gray-300">
+              <div className="p-4 rounded-2xl border border-gray-300 dark:border-gray-300/30">
                 🎯 Clean UI
                 <p className="text-gray-400 text-xs mt-1">
                   Modern, minimal and user-focused design
                 </p>
               </div>
-              <div className="p-4 rounded-2xl bg-white/5 border border-gray-300">
+              <div className="p-4 rounded-2xl border border-gray-300 dark:border-gray-300/30">
                 ⚡ Performance
                 <p className="text-gray-400 text-xs mt-1">
                   Optimized for speed and scalability
                 </p>
               </div>
-              <div className="p-4 rounded-2xl bg-white/5 border border-gray-300">
+              <div className="p-4 rounded-2xl border border-gray-300 dark:border-gray-300/30">
                 🤝 Collaboration
                 <p className="text-gray-400 text-xs mt-1">
                   Transparent and friendly communication
@@ -126,25 +108,18 @@ const Contact = () => {
                 <p>4. 🚀 You launch & grow</p>
               </div>
             </div>
-
-            {/* Mini testimonial */}
-            {/* <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-sm text-gray-300">
-              “Great communication and super clean work. Delivered exactly what
-              I needed!”
-              <p className="text-xs text-gray-500 mt-2">— Happy Client</p>
-            </div> */}
-
             {/* CTA badge */}
             <div>
-              <span className="inline-block px-4 py-2 bg-white/10 border border-gray-300 rounded-full text-sm">
+              <span className="inline-block px-4 py-2 border border-gray-300 dark:border-gray-300/30 rounded-full text-sm">
                 Let’s build something great together ✨
               </span>
             </div>
           </div>
-          <div className="p-5 lg:p-10 border border-gray-300 dark:border-white/10 rounded-2xl dark:bg-[#0f172a]/80 backdrop-blur-md shadow-[0_0_15px_rgba(0,0,0,0.1)]">
+          <div className="p-5 md:p-10 border border-gray-300 dark:border-gray-300/30 rounded-2xl
+                backdrop-blur-md shadow-[0_0_15px_rgba(0,0,0,0.1)]">
             <div>
               <h2
-                className="font-extrabold tracking-tight text-gray-300 text-4xl mb-3"
+                className="font-extrabold tracking-tight text-4xl mb-3"
                 style={{ letterSpacing: "-0.03em" }}
               >
                 <span
@@ -156,10 +131,8 @@ const Contact = () => {
                   Get in touch
                 </span>
               </h2>
-              <p className="font-medium text-sm text-[#5a5a78] dark:text-gray-300 mb-8">
-                Have a question or project in mind? I'd love to hear from you.
-                Fill out the form below and I'll get back to you as soon as
-                possible.
+              <p className="font-medium text-sm mb-8">
+                Have a question or project in mind? I'd love to hear from you. Fill out the form below and I'll get back to you as soon as possible.
               </p>
             </div>
             <ContactForm />
@@ -167,12 +140,11 @@ const Contact = () => {
         </div>
         <div>
           <div className="text-center py-10">
-            <h2 className="text-4xl font-bold text-gray-900">
+            <h1 className="text-center text-4xl font-extrabold mb-2">
               Other Ways To Reach Me
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto">
-              Prefer email, phone, or social media? Here are all the ways you
-              can connect with me.
+            </h1>
+            <p className="text-center text-lg font-semibold mb-10">
+              Prefer email, phone, or social media? Here are all the ways you can connect with me.
             </p>
           </div>
           {/* Contact Info Grid */}
@@ -183,16 +155,16 @@ const Contact = () => {
           </div>
 
           {/* Social Media Section */}
-          <div className="my-10 bg-linear-to-r from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-100">
+          <div className="my-10 font-semibold border border-gray-300 dark:border-gray-300/30 text-gray-700 dark:text-gray-200
+           rounded-2xl p-6 bg-gray-100 dark:bg-neutral-900">
             <div className="mx-auto text-center">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
                 Connect With Me
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8">
+              <p className="text-sm sm:text-base mb-6 sm:mb-8">
                 Follow me on social media for updates on my latest projects and
                 insights
               </p>
-
               {/* Social Links */}
               <div className="flex justify-center items-center gap-6">
                 {footerSocialLinks.map((social) => {
@@ -205,8 +177,9 @@ const Contact = () => {
                       title={social.label}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex h-15 w-15 text-4xl text-gray-600 items-center justify-center rounded-full border border-stroke text-dark 
-                                   hover:border-primary hover:bg-primary hover:text-teal-500 dark:border-dark-3 dark:text-white dark:hover:border-primary transition-all duration-300  transform hover:scale-110"
+                      className="flex h-10 w-10 text-2xl items-center justify-center rounded-full border border-stroke text-dark 
+                      hover:border-primary hover:bg-primary hover:text-teal-500 transition-all duration-300 dark:border-dark-3
+                    dark:text-white dark:hover:border-primary"
                     >
                       <Icon />
                     </a>
@@ -217,13 +190,12 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="pt-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-700 dark:text-gray-200 mb-2">
+        <div className="pt-10 font-semibold">
+          <h2 className="text-4xl font-bold mb-2">
             Find Me Here
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-            Coding from the heart of <strong>Jaipur, Rajasthan</strong>. Always
-            open for collaboration and new opportunities.
+          <p className="text-sm sm:text-base">
+            Coding from the heart of <strong>Jaipur, Rajasthan</strong>. Always open for collaboration and new opportunities.
           </p>
           {/* Map Container */}
           <div className="w-full h-64 sm:h-80 md:h-96 overflow-hidden rounded-2xl mt-2">
@@ -235,34 +207,34 @@ const Contact = () => {
               allowFullScreen={true}
             />
           </div>
-          <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 transition-colors duration-300">
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">
-              Jaipur, Rajasthan
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mb-4">
-              I'm based in Jaipur and available for remote work, meetings, and
-              collaborations. Whether you prefer a virtual meeting or an
-              in-person discussion, I'm flexible and ready to connect.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <a
-                href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.1844!2d75.7873!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db66a8c0%3A0x000000000!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v000000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-gray-100 hover:text-gray-100 font-medium rounded-sm hover:bg-blue-700 transition-colors duration-200 text-center text-sm sm:text-base"
-                aria-label="View on Google Maps"
-              >
-                View on Google Maps
-              </a>
+        </div>
+        <div className="mt-6 font-semibold bg-gray-100 dark:bg-neutral-900
+           rounded-2xl p-6 border border-gray-300 dark:border-gray-300/30 text-gray-700 dark:text-gray-200 transition-colors duration-300">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">
+            Jaipur, Rajasthan
+          </h3>
+          <p className="text-sm sm:text-base mb-4">
+            I'm based in Jaipur and available for remote work, meetings, and collaborations. Whether you prefer a virtual meeting or an
+            in-person discussion, I'm flexible and ready to connect.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a
+              href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.1844!2d75.7873!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db66a8c0%3A0x000000000!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-gray-100 hover:text-gray-100 font-medium rounded-sm hover:bg-blue-700 transition-colors duration-200 text-center text-sm sm:text-base"
+              aria-label="View on Google Maps"
+            >
+              View on Google Maps
+            </a>
 
-              <a
-                href="tel:+917627000907"
-                className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-gray-200 text-gray-900 hover:text-gray-900 font-medium rounded-sm hover:bg-gray-300 transition-colors duration-200 text-center text-sm sm:text-base"
-                aria-label="Call me"
-              >
-                Call Me
-              </a>
-            </div>
+            <a
+              href="tel:+917627000907"
+              className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-gray-200 text-gray-900 hover:text-gray-900 font-medium rounded-sm hover:bg-gray-300 transition-colors duration-200 text-center text-sm sm:text-base"
+              aria-label="Call me"
+            >
+              Call Me
+            </a>
           </div>
         </div>
       </Container>
@@ -278,7 +250,7 @@ const Contact = () => {
           <a
             href="#contact-form"
             className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-gray-200 text-gray-700 hover:text-gray-700 font-medium rounded-sm hover:bg-gray-300 
-                                    transition-colors duration-200 text-center text-sm sm:text-base"
+            transition-colors duration-200 text-center text-sm sm:text-base"
             aria-label="Scroll to contact form"
           >
             Send Me a Message

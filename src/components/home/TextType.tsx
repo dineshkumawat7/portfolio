@@ -1,13 +1,33 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  createElement,
-  useMemo,
-  useCallback,
-} from "react";
+import React, { useEffect, useRef, useState, createElement, useMemo, useCallback, type ElementType, type ReactNode, } from "react";
 import { gsap } from "gsap";
-import type { TextTypeProps } from "./textType.types";
+
+export interface VariableSpeed {
+  min: number;
+  max: number;
+}
+
+export interface TextTypeProps {
+  text: string | string[];
+  as?: ElementType;
+  typingSpeed?: number;
+  initialDelay?: number;
+  pauseDuration?: number;
+  deletingSpeed?: number;
+  loop?: boolean;
+  className?: string;
+  showCursor?: boolean;
+  hideCursorWhileTyping?: boolean;
+  cursorCharacter?: string;
+  cursorClassName?: string;
+  cursorBlinkDuration?: number;
+  textColors?: string[];
+  variableSpeed?: VariableSpeed;
+  onSentenceComplete?: (text: string, index: number) => void;
+  startOnVisible?: boolean;
+  reverseMode?: boolean;
+  children?: ReactNode;
+}
+
 
 const TextType: React.FC<TextTypeProps> = ({
   text,
@@ -115,7 +135,7 @@ const TextType: React.FC<TextTypeProps> = ({
           setCurrentTextIndex((prev) => (prev + 1) % textArray.length);
           setCurrentCharIndex(0);
 
-          timeout = setTimeout(() => {}, pauseDuration);
+          timeout = setTimeout(() => { }, pauseDuration);
         } else {
           timeout = setTimeout(() => {
             setDisplayedText((prev) => prev.slice(0, -1));
@@ -189,9 +209,8 @@ const TextType: React.FC<TextTypeProps> = ({
       {showCursor && (
         <span
           ref={cursorRef}
-          className={`ml-1 inline-block ${
-            shouldHideCursor ? "hidden" : ""
-          } ${cursorClassName}`}
+          className={`ml-1 inline-block ${shouldHideCursor ? "hidden" : ""
+            } ${cursorClassName}`}
         >
           {cursorCharacter}
         </span>

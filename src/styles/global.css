@@ -73,3 +73,15 @@ textarea:-webkit-autofill {
   );
   background-size: 20px 20px;
 }
+
+@keyframes imageReveal {
+  0% {
+    transform: translateX(80px) scale(1.08);
+    filter: blur(6px);
+  }
+
+  100% {
+    transform: translateX(0) scale(1.05);
+    filter: blur(0px);
+  }
+}

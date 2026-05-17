@@ -1,45 +1,76 @@
 import React from "react";
-import krishnaImg from "../assets/images/krishna.jpg";
+import hanumanImg from "../assets/images/lord-hanuman.jpg";
+import Container from "./Container";
 
 const QuoteCard: React.FC = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-purple-950 p-4">
-      <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden shadow-lg border border-purple-400/30">
-        {/* Background Image */}
-        <img
-          src={krishnaImg}
-          alt="Krishna"
-          className="w-full object-cover"
-        />
+    <section className="w-full pb-10 bg-white dark:bg-black overflow-hidden">
+      <Container>
+        <div
+          className="relative mx-auto max-w-6xl rounded-2xl overflow-hidden border border-orange-200/20 
+          shadow-[0_0_60px_rgba(249,115,22,0.15)] bg-black"
+        >
+          {/* Background Image */}
+          <img
+            src={hanumanImg}
+            alt="Lord Hanuman"
+            className="h-150 w-full object-cover object-center animate-[imageReveal_6s_cubic-bezier(0.22,1,0.36,1)_infinite_alternate]"
+          />
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/40 to-transparent"></div>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-linear-to-r from-black via-black/70 to-black/20" />
 
-        {/* Text Content */}
-        <div className="absolute inset-0 flex flex-col justify-end items-end text-right p-6 text-white">
-          {/* Sanskrit */}
-          <h2 className="text-yellow-400 text-lg md:text-xl font-semibold leading-relaxed max-w-md">
-            कर्मण्येवाधिकारस्ते मा फलेषु कदाचन। मा कर्मफलहेतुर्भूर्मा ते
-            सङ्गोऽस्त्वकर्मणि॥
-          </h2>
+          {/* Orange Glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,146,60,0.35),transparent_40%)]" />
 
-          {/* Transliteration */}
-          <p className="mt-3 text-sm font-medium max-w-md">
-            Karmanye Vadhikaraste, Ma Phaleshu Kadachana...
-          </p>
+          {/* Content */}
+          <div
+            className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 md:p-14 text-white"
+          >
+            {/* Badge */}
+            <div
+              className="mb-4 w-fit rounded-full border border-orange-400/30 bg-orange-500/10 px-4 py-1.5
+              text-xs sm:text-sm font-medium tracking-[0.2em] uppercase text-orange-300 backdrop-blur-md"
+            >
+              Jai Shree Ram 🚩
+            </div>
 
-          {/* Meaning */}
-          <p className="mt-2 text-xs text-gray-200 max-w-md">
-            You have a right to perform your duties, but not to the fruits of
-            your actions. Do not let the fruits of action be your motive, nor
-            let your attachment be to inaction.
-          </p>
+            {/* Sanskrit Quote */}
+            <h2
+              className="max-w-3xl text-xl font-bold leading-snug text-orange-100 drop-shadow-xl"
+            >
+              बुद्धिर्बलं यशोधैर्यं निर्भयत्वमरोगता।
+              <br />
+              अजाड्यं वाक्पटुत्वं च हनुमत्स्मरणाद्भवेत्॥
+            </h2>
 
-          {/* Source */}
-          <p className="mt-3 text-[10px] text-gray-300">— Bhagavad Gita 2.47</p>
+            {/* Transliteration */}
+            <p
+              className="mt-5 max-w-2xl text-sm sm:text-base md:text-lg text-orange-200/90 font-medium"
+            >
+              Buddhir Balam Yasho Dhairyam Nirbhayatvam Arogata...
+            </p>
+
+            {/* Meaning */}
+            <p
+              className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-gray-200"
+            >
+              Remembering Lord Hanuman brings wisdom, strength, courage,
+              fearlessness, good health, and excellence in speech.
+            </p>
+
+            {/* Footer */}
+            <div className="mt-6 flex items-center gap-3">
+              <div className="h-px w-14 bg-orange-400" />
+
+              <p className="text-xs sm:text-sm tracking-widest text-orange-300 uppercase">
+                Hanuman Chalisa
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </Container>
+    </section>
   );
 };
 

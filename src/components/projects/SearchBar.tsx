@@ -10,7 +10,7 @@ export const SearchBar: React.FC<SearchProps> = ({ value, onChange }) => {
       placeholder="Search projects..."
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full mb-6 px-4 py-2 rounded-xl border dark:border-zinc-700 bg-white dark:bg-zinc-900"
+      className="w-full mb-6 px-4 py-2 rounded-xl border border-gray-300 dark:border-zinc-700 bg-white dark:bg-zinc-900"
     />
   );
 };

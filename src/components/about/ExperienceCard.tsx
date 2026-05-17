@@ -18,48 +18,27 @@ type Props = {
 const ExperienceCard: React.FC<Props> = ({ data }) => {
   return (
     <div
-      className="bg-linear-to-r from-slate-800/80 to-slate-600/60 backdrop-blur-md text-black 
-    rounded-2xl p-5 shadow-md hover:shadow-lg transition-all duration-300 ml-20 w-full"
+      className="bg-gray-100 dark:bg-neutral-900 backdrop-blur-md rounded-2xl p-5 transition-all duration-300 font-semibold
+        ml-20 w-full shadow-[0_0_15px_rgba(0,0,0,0.1)] text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-300/30"
     >
-      {/* Role */}
-      <h3 className="text-xl md:text-2xl font-bold text-white">{data.role}</h3>
-
-      {/* Company */}
-      <p className="text-gray-200 mt-1 text-sm md:text-base">{data.company}</p>
-
-      {/* Duration */}
-      <p className="text-white font-semibold mt-2">{data.duration}</p>
-
-      {/* Status Badge */}
-      <span
-        className={`inline-block mt-2 px-2 py-1 text-xs rounded-full ${
-          data.status === "current"
-            ? "bg-green-200 text-green-800"
-            : "bg-gray-200 text-gray-700"
-        }`}
-      >
-        {data.status === "current" ? "Present" : "Completed"}
-      </span>
-
-      {/* Description */}
-      {data.description && <p className="text-sm mt-3 text-gray-200">{data.description}</p>}
-
-      {/* Responsibilities */}
+      <h3 className="text-xl md:text-2xl font-bold">{data.company}({data.role})</h3>
+      <p className="font-semibold mt-2">{data.duration}</p>
+      {data.description && <p className="text-sm mt-3">{data.description}</p>}
       {data.responsibilities && (
-        <ul className="list-disc list-inside mt-2 text-sm text-gray-200">
+        <ul className="list-disc list-inside mt-2 text-sm">
           {data.responsibilities.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
       )}
-
-      {/* Technologies */}
       {data.technologies && (
         <div className="mt-3 flex flex-wrap gap-2">
           {data.technologies.map((tech, index) => (
             <span
               key={index}
-              className="bg-white text-xs px-2 py-1 rounded-md shadow-sm"
+              className="text-[10px] font-medium px-2 py-1 rounded-md
+                bg-gray-200 text-gray-700 border border-gray-300
+                dark:bg-white/5 dark:text-gray-300 dark:border-white/10"
             >
               {tech}
             </span>

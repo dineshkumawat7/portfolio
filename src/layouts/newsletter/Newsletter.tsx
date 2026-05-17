@@ -1,4 +1,4 @@
-import Container from "../../components/layout/Container";
+import Container from "../Container";
 import { NewsletterForm } from "./NewsletterForm";
 
 export const Newsletter = () => {
@@ -19,7 +19,7 @@ export const Newsletter = () => {
               className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 transition-all duration-300"
             >
               Stay Updated with Latest{" "}
-              <span className="text-blue-600">Tech Insights</span>
+              <span className="text-teal-500">Tech Insights</span>
             </h2>
             <p className="text-black dark:text-gray-300 mt-4 text-sm md:text-base transition-colors duration-300">
               Subscribe to my newsletter for exclusive content on software
@@ -29,15 +29,15 @@ export const Newsletter = () => {
             </p>
             <ul className="mt-4 space-y-2 text-sm md:text-base text-gray-600 dark:text-gray-400 transition-all duration-300">
               <li className="flex items-center gap-2">
-                <span className="text-blue-600 font-bold">✓</span>
+                <span className="text-teal-500 font-bold">✓</span>
                 Weekly Tech Updates
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-blue-600 font-bold">✓</span>
+                <span className="text-teal-500 font-bold">✓</span>
                 In-depth Tutorials & Guides
               </li>
               <li className="flex items-center md:justify-start gap-2">
-                <span className="text-blue-600 font-bold">✓</span>
+                <span className="text-teal-500 font-bold">✓</span>
                 Industry Trends & News
               </li>
             </ul>

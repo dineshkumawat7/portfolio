@@ -1,5 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import type { IframeProps } from "../../types/iframe.types";
+
+export interface IframeProps {
+  src: string;
+  title?: string;
+  className?: string;
+  allow?: string;
+  allowFullScreen?: boolean;
+  loading?: "eager" | "lazy";
+  sandbox?: string;
+  aspectRatio?: "16/9" | "4/3" | "1/1" | string;
+  onLoad?: () => void;
+}
+
 
 const aspectRatioMap: Record<string, string> = {
   "16/9": "pb-[56.25%]",
